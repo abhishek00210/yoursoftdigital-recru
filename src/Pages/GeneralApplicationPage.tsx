@@ -14,8 +14,9 @@ import {
   MapPin,
   Linkedin,
   Clock,
-
+  Zap,
   ArrowLeft,
+  Heart,
   Sparkles,
   Shield,
   Users,
@@ -850,21 +851,27 @@ const GeneralApplicationPage = () => {
                 </ul>
               </div>
 
-              {/* Stats Card */}
-              <div className="sidebar-card stats-card">
-                <div className="stat-item">
-                  <span className="stat-number">2,500+</span>
-                  <span className="stat-label">Technicians Placed</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">98%</span>
-                  <span className="stat-label">Satisfaction Rate</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">5-7</span>
-                  <span className="stat-label">Days Avg. Response</span>
-                </div>
-              </div>
+          {/* Stats Card - Icon Based */}
+<div className="sidebar-card stats-card icon-based">
+  <div className="stat-item">
+    <div className="stat-icon">
+      <Zap size={24} />
+    </div>
+    <span className="stat-label">Fast Response Time</span>
+  </div>
+  <div className="stat-item">
+    <div className="stat-icon">
+      <Shield size={24} />
+    </div>
+    <span className="stat-label">100% Confidential</span>
+  </div>
+  <div className="stat-item">
+    <div className="stat-icon">
+      <Heart size={24} />
+    </div>
+    <span className="stat-label">Free for Candidates</span>
+  </div>
+</div>
 
               {/* Contact Card */}
               <div className="sidebar-card contact-card">

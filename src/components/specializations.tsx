@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import "../styles/Specializations.css"
 import { 
   Wrench, 
   TrendingUp, 
@@ -7,7 +8,6 @@ import {
   Building2, 
   CheckCircle, 
   ArrowRight,
-  Settings,
   Briefcase,
   Target,
   Shield
@@ -112,144 +112,87 @@ const Specializations = () => {
     },
   };
 
-  const getColorClasses = (color) => {
-    const colors = {
-      blue: {
-        bg: 'bg-blue-500/10',
-        border: 'border-blue-500/20',
-        icon: 'bg-blue-500 text-white',
-        badge: 'bg-blue-500/10 text-blue-600',
-        hover: 'hover:border-blue-500/40',
-      },
-      cyan: {
-        bg: 'bg-cyan-500/10',
-        border: 'border-cyan-500/20',
-        icon: 'bg-cyan-500 text-white',
-        badge: 'bg-cyan-500/10 text-cyan-600',
-        hover: 'hover:border-cyan-500/40',
-      },
-      orange: {
-        bg: 'bg-orange-500/10',
-        border: 'border-orange-500/20',
-        icon: 'bg-orange-500 text-white',
-        badge: 'bg-orange-500/10 text-orange-600',
-        hover: 'hover:border-orange-500/40',
-      },
-      green: {
-        bg: 'bg-emerald-500/10',
-        border: 'border-emerald-500/20',
-        icon: 'bg-emerald-500 text-white',
-        badge: 'bg-emerald-500/10 text-emerald-600',
-        hover: 'hover:border-emerald-500/40',
-      },
-    };
-    return colors[color] || colors.blue;
-  };
-
   return (
-    <section className="py-20 md:py-28 bg-slate-50" ref={ref}>
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
+    <section className="specializations section">
+      <div className="container">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="section-header"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          ref={ref}
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 text-blue-600 rounded-full text-sm font-medium mb-4">
+          <span className="section-badge">
             <Target size={16} />
             Our Specializations
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Recruitment Expertise for Machinery Industries
-          </h2>
-          <p className="text-slate-600 text-lg">
+          <h2 className="section-title">Recruitment Expertise for Machinery Industries</h2>
+          <p className="section-subtitle">
             We bring deep familiarity with capital equipment sales models, regional service 
             territories, and after-sales service operations across North America.
           </p>
         </motion.div>
 
-        {/* Specialization Cards */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="specialization-cards"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          {specializations.map((spec) => {
-            const colorClasses = getColorClasses(spec.color);
-            
-            return (
-              <motion.div
-                key={spec.id}
-                className={`bg-white rounded-2xl border ${colorClasses.border} ${colorClasses.hover} p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
-                variants={cardVariants}
-              >
-                {/* Header */}
-                <div className="flex items-start gap-4 mb-6">
-                  <div className={`w-14 h-14 rounded-xl ${colorClasses.icon} flex items-center justify-center flex-shrink-0`}>
-                    {spec.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-1">
-                      {spec.title}
-                    </h3>
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${colorClasses.badge}`}>
-                      {spec.subtitle}
+          {specializations.map((spec) => (
+            <motion.div
+              key={spec.id}
+              className={`specialization-card specialization-card--${spec.color}`}
+              variants={cardVariants}
+              whileHover={{ y: -5 }}
+            >
+              <div className="specialization-header">
+                <div className={`specialization-icon specialization-icon--${spec.color}`}>
+                  {spec.icon}
+                </div>
+                <div className="specialization-title-group">
+                  <h3 className="specialization-title">{spec.title}</h3>
+                  <span className={`specialization-subtitle specialization-subtitle--${spec.color}`}>
+                    {spec.subtitle}
+                  </span>
+                </div>
+              </div>
+
+              <p className="specialization-description">{spec.description}</p>
+
+              <div className="specialization-roles">
+                <h4 className="specialization-roles-title">
+                  <Briefcase size={16} />
+                  Roles We Recruit
+                </h4>
+                <div className="specialization-roles-list">
+                  {spec.roles.map((role, index) => (
+                    <span key={index} className="specialization-role">
+                      <CheckCircle size={14} className="specialization-role-icon" />
+                      {role}
                     </span>
-                  </div>
+                  ))}
                 </div>
+              </div>
 
-                {/* Description */}
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  {spec.description}
-                </p>
-
-                {/* Roles */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                    <Briefcase size={16} />
-                    Roles We Recruit
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {spec.roles.map((role, index) => (
-                      <span 
-                        key={index}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg text-sm"
-                      >
-                        <CheckCircle size={14} className="text-emerald-500" />
-                        {role}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Highlight Box */}
-                <div className={`${colorClasses.bg} rounded-xl p-4`}>
-                  <h4 className="font-semibold text-slate-900 mb-2 flex items-center gap-2">
-                    <Shield size={16} />
-                    {spec.highlight}
-                  </h4>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    {spec.highlightText}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+              <div className={`specialization-highlight specialization-highlight--${spec.color}`}>
+                <h4 className="specialization-highlight-title">
+                  <Shield size={16} />
+                  {spec.highlight}
+                </h4>
+                <p className="specialization-highlight-text">{spec.highlightText}</p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* CTA */}
         <motion.div
-          className="text-center mt-12"
+          className="specialization-cta"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8, duration: 0.5 }}
         >
-          <a 
-            href="#contact" 
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1"
-          >
+          <a href="#contact" className="btn btn-primary btn-lg">
             Discuss Your Hiring Needs
             <ArrowRight size={20} />
           </a>

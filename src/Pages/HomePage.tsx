@@ -10,6 +10,7 @@ import Jobs from '../components/Jobs';
 import Testimonials from '../components/Testimonials';
 import Compliance from '../components/Compliance';
 import Contact from '../components/Contact';
+import Specializations from '../components/specializations';
 
 const HomePage = () => {
   return (
@@ -21,7 +22,7 @@ const HomePage = () => {
       <Process />
       <Stats />
       <Jobs />
-      <Testimonials />
+      <Specializations />
       <Compliance />
       <Contact />
     </>

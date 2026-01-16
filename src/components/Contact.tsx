@@ -160,16 +160,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 }}
             >
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="social-link"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              ))}
+            
             </motion.div>
           </motion.div>
 

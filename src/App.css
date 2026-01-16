@@ -2333,6 +2333,7 @@ ul {
     justify-content: center;
   }
 }
+
 /* ===== CUSTOM SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 10px;

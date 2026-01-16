@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Target, Shield, Zap, Users, ArrowRight } from 'lucide-react';
@@ -44,97 +43,169 @@ const About = () => {
           >
             <div className="about-illustration">
               <svg viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Background Elements */}
-                <rect x="50" y="50" width="400" height="350" rx="20" fill="#f1f5f9"/>
+                {/* Background gradient circle */}
+                <defs>
+                  <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1"/>
+                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.1"/>
+                  </linearGradient>
+                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3b82f6"/>
+                    <stop offset="100%" stopColor="#06b6d4"/>
+                  </linearGradient>
+                  <linearGradient id="personGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#1e40af"/>
+                    <stop offset="100%" stopColor="#3b82f6"/>
+                  </linearGradient>
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="8" floodOpacity="0.15"/>
+                  </filter>
+                </defs>
                 
-                {/* Office/Workspace */}
-                <g>
-                  {/* Desk */}
-                  <rect x="100" y="280" width="300" height="20" rx="5" fill="#1e293b"/>
-                  <rect x="120" y="300" width="20" height="80" fill="#1e293b"/>
-                  <rect x="360" y="300" width="20" height="80" fill="#1e293b"/>
-                  
-                  {/* Computer Monitor */}
-                  <rect x="180" y="180" width="140" height="100" rx="8" fill="#1e293b"/>
-                  <rect x="190" y="190" width="120" height="75" rx="4" fill="#3b82f6"/>
-                  
-                  {/* Screen Content - Chart */}
-                  <path d="M200 250 L220 230 L250 245 L280 210 L300 225" stroke="white" strokeWidth="3" fill="none"/>
-                  <circle cx="220" cy="230" r="4" fill="#10b981"/>
-                  <circle cx="250" cy="245" r="4" fill="#10b981"/>
-                  <circle cx="280" cy="210" r="4" fill="#10b981"/>
-                  
-                  {/* Monitor Stand */}
-                  <rect x="235" y="280" width="30" height="10" fill="#64748b"/>
-                  <rect x="225" y="275" width="50" height="8" rx="2" fill="#64748b"/>
-                  
-                  {/* Keyboard */}
-                  <rect x="200" y="300" width="100" height="25" rx="5" fill="#e2e8f0"/>
-                  {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-                    <rect key={i} x={210 + i * 10} y="308" width="6" height="10" rx="1" fill="#94a3b8"/>
-                  ))}
-                  
-                  {/* Mouse */}
-                  <ellipse cx="330" cy="315" rx="15" ry="12" fill="#e2e8f0"/>
+                {/* Main background circle */}
+                <circle cx="250" cy="225" r="180" fill="url(#bgGradient)"/>
+                
+                {/* Connection lines */}
+                <g opacity="0.6">
+                  <path d="M250 225 L120 140" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M250 225 L380 140" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M250 225 L120 310" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M250 225 L380 310" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M250 225 L250 80" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+                  </path>
                 </g>
                 
-                {/* Person at Desk */}
-                <g className="animate-float-slow">
-                  <circle cx="250" cy="130" r="35" fill="#f97316"/>
-                  <ellipse cx="250" cy="200" rx="40" ry="50" fill="#f97316"/>
-                  {/* Face */}
-                  <circle cx="238" cy="125" r="4" fill="white"/>
-                  <circle cx="262" cy="125" r="4" fill="white"/>
-                  <path d="M240 140 Q250 150 260 140" stroke="white" strokeWidth="3" fill="none"/>
-                  {/* Arms */}
-                  <path d="M210 180 Q180 220 200 280" stroke="#f97316" strokeWidth="20" fill="none" strokeLinecap="round"/>
-                  <path d="M290 180 Q320 220 300 280" stroke="#f97316" strokeWidth="20" fill="none" strokeLinecap="round"/>
+                {/* Center hub - Main recruiter */}
+                <g filter="url(#shadow)">
+                  <circle cx="250" cy="225" r="55" fill="white"/>
+                  <circle cx="250" cy="225" r="50" fill="url(#personGradient)"/>
+                  {/* Person icon */}
+                  <circle cx="250" cy="210" r="15" fill="white"/>
+                  <path d="M225 250 Q225 230 250 230 Q275 230 275 250" fill="white"/>
+                  {/* Briefcase detail */}
+                  <rect x="238" y="252" width="24" height="16" rx="3" fill="#1e40af"/>
+                  <rect x="244" y="248" width="12" height="6" rx="2" fill="#1e40af"/>
                 </g>
                 
-                {/* Floating Resume/Document */}
+                {/* Top candidate */}
+                <g className="animate-float" filter="url(#shadow)">
+                  <circle cx="250" cy="65" r="35" fill="white"/>
+                  <circle cx="250" cy="55" r="12" fill="#10b981"/>
+                  <path d="M232 78 Q232 65 250 65 Q268 65 268 78" fill="#10b981"/>
+                  {/* Checkmark badge */}
+                  <circle cx="275" cy="50" r="12" fill="#10b981"/>
+                  <path d="M270 50 L273 53 L281 45" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                </g>
+                
+                {/* Top-left candidate */}
+                <g className="animate-float" style={{animationDelay: '0.3s'}} filter="url(#shadow)">
+                  <circle cx="120" cy="130" r="32" fill="white"/>
+                  <circle cx="120" cy="120" r="11" fill="#f97316"/>
+                  <path d="M104 145 Q104 133 120 133 Q136 133 136 145" fill="#f97316"/>
+                  {/* Star badge */}
+                  <circle cx="142" cy="115" r="10" fill="#f97316"/>
+                  <path d="M142 108 L143.5 113 L149 113 L144.5 116 L146 121 L142 118 L138 121 L139.5 116 L135 113 L140.5 113 Z" fill="white"/>
+                </g>
+                
+                {/* Top-right candidate */}
+                <g className="animate-float" style={{animationDelay: '0.6s'}} filter="url(#shadow)">
+                  <circle cx="380" cy="130" r="32" fill="white"/>
+                  <circle cx="380" cy="120" r="11" fill="#8b5cf6"/>
+                  <path d="M364 145 Q364 133 380 133 Q396 133 396 145" fill="#8b5cf6"/>
+                  {/* Document badge */}
+                  <rect x="395" y="105" width="16" height="20" rx="2" fill="#8b5cf6"/>
+                  <rect x="398" y="110" width="10" height="2" fill="white"/>
+                  <rect x="398" y="114" width="8" height="2" fill="white"/>
+                  <rect x="398" y="118" width="10" height="2" fill="white"/>
+                </g>
+                
+                {/* Bottom-left candidate */}
+                <g className="animate-float" style={{animationDelay: '0.9s'}} filter="url(#shadow)">
+                  <circle cx="120" cy="320" r="32" fill="white"/>
+                  <circle cx="120" cy="310" r="11" fill="#06b6d4"/>
+                  <path d="M104 335 Q104 323 120 323 Q136 323 136 335" fill="#06b6d4"/>
+                  {/* Gear badge */}
+                  <circle cx="145" cy="305" r="12" fill="#06b6d4"/>
+                  <circle cx="145" cy="305" r="5" fill="white"/>
+                  <g fill="#06b6d4">
+                    <rect x="143" y="295" width="4" height="4"/>
+                    <rect x="143" y="311" width="4" height="4"/>
+                    <rect x="135" y="303" width="4" height="4"/>
+                    <rect x="151" y="303" width="4" height="4"/>
+                  </g>
+                </g>
+                
+                {/* Bottom-right candidate */}
+                <g className="animate-float" style={{animationDelay: '1.2s'}} filter="url(#shadow)">
+                  <circle cx="380" cy="320" r="32" fill="white"/>
+                  <circle cx="380" cy="310" r="11" fill="#ec4899"/>
+                  <path d="M364 335 Q364 323 380 323 Q396 323 396 335" fill="#ec4899"/>
+                  {/* Award badge */}
+                  <circle cx="405" cy="305" r="12" fill="#ec4899"/>
+                  <circle cx="405" cy="302" r="6" fill="white"/>
+                  <path d="M401 308 L405 315 L409 308" fill="white"/>
+                </g>
+                
+                {/* Floating elements */}
                 <g className="animate-float" style={{animationDelay: '0.5s'}}>
-                  <rect x="380" y="100" width="80" height="100" rx="5" fill="white" stroke="#e2e8f0" strokeWidth="2"/>
-                  <circle cx="420" cy="125" r="15" fill="#06b6d4"/>
-                  <rect x="395" y="150" width="50" height="5" rx="2" fill="#e2e8f0"/>
-                  <rect x="395" y="162" width="40" height="5" rx="2" fill="#e2e8f0"/>
-                  <rect x="395" y="174" width="45" height="5" rx="2" fill="#e2e8f0"/>
-                  <circle cx="450" cy="100" r="12" fill="#10b981"/>
-                  <path d="M445 100 L448 103 L456 95" stroke="white" strokeWidth="2" fill="none"/>
+                  <circle cx="60" cy="200" r="8" fill="#3b82f6" opacity="0.6"/>
+                </g>
+                <g className="animate-float" style={{animationDelay: '0.8s'}}>
+                  <circle cx="440" cy="220" r="6" fill="#06b6d4" opacity="0.6"/>
+                </g>
+                <g className="animate-float" style={{animationDelay: '1.1s'}}>
+                  <rect x="420" cy="380" width="12" height="12" rx="3" fill="#f97316" opacity="0.5"/>
+                </g>
+                <g className="animate-float" style={{animationDelay: '0.2s'}}>
+                  <rect x="50" cy="350" width="10" height="10" rx="2" fill="#10b981" opacity="0.5"/>
                 </g>
                 
-                {/* Floating Resume 2 */}
-                <g className="animate-float" style={{animationDelay: '1s'}}>
-                  <rect x="40" y="150" width="70" height="90" rx="5" fill="white" stroke="#e2e8f0" strokeWidth="2"/>
-                  <circle cx="75" cy="172" r="12" fill="#3b82f6"/>
-                  <rect x="52" y="192" width="45" height="4" rx="2" fill="#e2e8f0"/>
-                  <rect x="52" y="202" width="35" height="4" rx="2" fill="#e2e8f0"/>
-                  <rect x="52" y="212" width="40" height="4" rx="2" fill="#e2e8f0"/>
+                {/* Decorative dots pattern */}
+                <g opacity="0.3">
+                  {[...Array(5)].map((_, i) => (
+                    <circle key={`dot-1-${i}`} cx={420 + i * 12} cy="60" r="3" fill="#94a3b8"/>
+                  ))}
+                  {[...Array(5)].map((_, i) => (
+                    <circle key={`dot-2-${i}`} cx={420 + i * 12} cy="75" r="3" fill="#94a3b8"/>
+                  ))}
+                  {[...Array(5)].map((_, i) => (
+                    <circle key={`dot-3-${i}`} cx={20 + i * 12} cy="400" r="3" fill="#94a3b8"/>
+                  ))}
+                  {[...Array(5)].map((_, i) => (
+                    <circle key={`dot-4-${i}`} cx={20 + i * 12} cy="415" r="3" fill="#94a3b8"/>
+                  ))}
                 </g>
                 
-                {/* Connection Lines */}
-                <path d="M110 195 Q150 150 180 180" stroke="#3b82f6" strokeWidth="2" strokeDasharray="5,5" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <path d="M380 150 Q350 130 320 160" stroke="#06b6d4" strokeWidth="2" strokeDasharray="5,5" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                
-                {/* Decorative Elements */}
-                <circle cx="70" cy="80" r="20" fill="#3b82f6" opacity="0.2"/>
-                <circle cx="430" cy="350" r="30" fill="#06b6d4" opacity="0.2"/>
-                <rect x="350" y="60" width="40" height="40" rx="8" fill="#f97316" opacity="0.2"/>
+                {/* Data flow particles */}
+                <circle r="4" fill="#3b82f6">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M250,225 Q200,180 120,140"/>
+                </circle>
+                <circle r="4" fill="#06b6d4">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M250,225 Q300,180 380,140" begin="0.5s"/>
+                </circle>
+                <circle r="4" fill="#10b981">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M250,225 L250,80" begin="1s"/>
+                </circle>
               </svg>
             </div>
-
-            <motion.div
-              className="about-experience-badge"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              <h3>15+</h3>
-              <p>Years of Excellence</p>
-            </motion.div>
+<motion.div
+  className="about-experience-badge"
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={inView ? { opacity: 1, scale: 1 } : {}}
+  transition={{ delay: 0.5, duration: 0.5 }}
+>
+  <h3>100%</h3>
+  <p>Dedicated to Your Success</p>
+</motion.div>
           </motion.div>
 
           <motion.div
