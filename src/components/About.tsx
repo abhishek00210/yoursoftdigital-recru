@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Target, Shield, Zap, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import { Target, Shield, Zap, Users, ArrowRight } from 'lucide-react';
 
 const About = () => {
   const [ref, inView] = useInView({

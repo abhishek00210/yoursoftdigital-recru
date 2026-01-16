@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import HomePage from './pages/HomePage';
-import JobsPage from './pages/JobsPage';
-import JobDetailPage from './pages/JobDetailPage';
-import GeneralApplicationPage from './pages/GeneralApplicationPage';
+import HomePage from './Pages/HomePage';
+import JobsPage from './Pages/JobsPage';
+import JobDetailPage from './Pages/JobDetailPage';
+import GeneralApplicationPage from './Pages/GeneralApplicationPage';
 import './App.css';
 import './styles/JobsPage.css';
 import './styles/JobDetailPage.css';

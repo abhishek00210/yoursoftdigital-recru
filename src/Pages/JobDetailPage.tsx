@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -661,7 +661,7 @@ const JobDetailPage = () => {
                         name="coverLetter"
                         value={formData.coverLetter}
                         onChange={handleInputChange}
-                        rows="4"
+                        rows={4}
                         placeholder="Tell us why you're interested in this position..."
                       />
                     </div>

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { 
   MapPin, 
   Clock, 
   Briefcase, 
   ArrowRight,
-  Filter,
-  Star
+  
 } from 'lucide-react';
-import { jobsData } from '../Data/jobsData';
+import { jobsData } from '../data/jobsData';
 
 const Jobs = () => {
   const [ref, inView] = useInView({
@@ -33,9 +33,15 @@ const Jobs = () => {
     .filter(job => activeFilter === 'all' || job.category === activeFilter)
     .slice(0, 6);
 
-  const formatSalary = (salary) => {
-    return `$${(salary.min / 1000).toFixed(0)}K - $${(salary.max / 1000).toFixed(0)}K`;
-  };
+ type SalaryRange = {
+  min: number;
+  max: number;
+};
+
+const formatSalary = (salary: SalaryRange) => {
+  return `$${(salary.min / 1000).toFixed(0)}K - $${(salary.max / 1000).toFixed(0)}K`;
+};
+
 
   return (
     <section id="jobs" className="jobs section">

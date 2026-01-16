@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useSearchParams, useNavigate } from 'react-router-dom';
+import  { useState, useEffect, useMemo } from 'react';
+import {  useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
@@ -8,18 +8,14 @@ import {
   ChevronDown,
   ChevronUp,
   X,
-  Briefcase,
-  Clock,
-  DollarSign,
-  Building2,
+
   Bell,
   SlidersHorizontal,
-  Calendar,
-  ArrowRight,
+
   AlertCircle,
-  Star,
+
 } from 'lucide-react';
-import { jobsData, filterOptions } from '../Data/jobsData';
+import { jobsData, filterOptions } from '../data/jobsData';
 import '../styles/JobsPage.css';
 
 const JobsPage = () => {
@@ -117,24 +113,38 @@ const JobsPage = () => {
     
     // Sort
     switch (sortBy) {
-      case 'newest':
-        result.sort((a, b) => new Date(b.postedDate) - new Date(a.postedDate));
-        break;
-      case 'oldest':
-        result.sort((a, b) => new Date(a.postedDate) - new Date(b.postedDate));
-        break;
-      case 'salary-high':
-        result.sort((a, b) => b.salary.max - a.salary.max);
-        break;
-      case 'salary-low':
-        result.sort((a, b) => a.salary.min - b.salary.min);
-        break;
-      case 'title':
-        result.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      default:
-        break;
-    }
+  case 'newest':
+    result.sort(
+      (a, b) =>
+        new Date(b.postedDate).getTime() -
+        new Date(a.postedDate).getTime()
+    );
+    break;
+
+  case 'oldest':
+    result.sort(
+      (a, b) =>
+        new Date(a.postedDate).getTime() -
+        new Date(b.postedDate).getTime()
+    );
+    break;
+
+  case 'salary-high':
+    result.sort((a, b) => b.salary.max - a.salary.max);
+    break;
+
+  case 'salary-low':
+    result.sort((a, b) => a.salary.min - b.salary.min);
+    break;
+
+  case 'title':
+    result.sort((a, b) => a.title.localeCompare(b.title));
+    break;
+
+  default:
+    break;
+}
+
     
     return result;
   }, [searchQuery, locationQuery, selectedFilters, sortBy]);

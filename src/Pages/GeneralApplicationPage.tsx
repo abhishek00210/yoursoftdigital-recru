@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -14,7 +14,7 @@ import {
   MapPin,
   Linkedin,
   Clock,
-  DollarSign,
+
   ArrowLeft,
   Sparkles,
   Shield,
@@ -651,7 +651,7 @@ const GeneralApplicationPage = () => {
                           name="skills"
                           value={formData.skills}
                           onChange={handleInputChange}
-                          rows="3"
+                          rows={3}
                           placeholder="e.g., Red Seal Electrician, PLC Programming (Allen Bradley), CNC Operation, Welding CWB..."
                         />
                       </div>
@@ -740,7 +740,7 @@ const GeneralApplicationPage = () => {
                           name="coverLetter"
                           value={formData.coverLetter}
                           onChange={handleInputChange}
-                          rows="4"
+                          rows={4}
                           placeholder="Anything else you'd like us to know? Career goals, specific interests, etc."
                         />
                       </div>

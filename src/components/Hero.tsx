@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Play, CheckCircle, Users, Briefcase, Award } from 'lucide-react';
+
+import { motion, type Variants } from 'framer-motion';
+import { ArrowRight, Play, CheckCircle, Users,  Award } from 'lucide-react';
 
 const Hero = () => {
-  const containerVariants = {
+ const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -13,14 +13,15 @@ const Hero = () => {
     },
   };
 
-  const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
+
       },
     },
   };

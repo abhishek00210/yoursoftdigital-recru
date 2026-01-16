@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { 
   Mail, 
@@ -33,7 +33,7 @@ const Footer = () => {
     { name: 'Millwrights', href: '/jobs?q=Millwright' },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert('Thank you for subscribing!');
   };
