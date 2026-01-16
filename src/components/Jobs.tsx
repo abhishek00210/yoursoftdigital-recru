@@ -11,7 +11,7 @@ import {
   
 } from 'lucide-react';
 import { jobsData } from '../data/jobsData';
-import "../styles/Jobs.css"
+import "../styles/JobsPage.css"
 
 const Jobs = () => {
   const [ref, inView] = useInView({
