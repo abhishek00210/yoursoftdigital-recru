@@ -89,20 +89,7 @@ const Footer = () => {
               </form>
             </div>
 
-            <div className="footer-social">
-              <a href="#" className="social-link" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="social-link" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="social-link" aria-label="Facebook">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="social-link" aria-label="Instagram">
-                <Instagram size={20} />
-              </a>
-            </div>
+            
           </div>
 
           {/* Quick Links */}
