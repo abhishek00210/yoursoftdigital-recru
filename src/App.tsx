@@ -12,10 +12,10 @@ import JobDetailPage from './Pages/JobDetailPage';
 import GeneralApplicationPage from './Pages/GeneralApplicationPage';
 
 // Legal Pages
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
-import DoNotSell from './pages/DoNotSell';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import TermsOfService from './Pages/TermsOfService';
+import CookiePolicy from './Pages/CookiePolicy';
+import DoNotSell from './Pages/DoNotSell';
 import AboutPage from './Pages/AboutPage';
 // Styles
 import './App.css';
