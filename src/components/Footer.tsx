@@ -255,7 +255,8 @@ const Footer = () => {
                     <br />
                     Canada
                     <br />
-                    YourSoft Digital.
+                 
+
                   </div>
                 </div>
 
@@ -313,7 +314,7 @@ const Footer = () => {
             {/* Copyright Row */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5">
               <p className="text-gray-500 text-sm text-center md:text-left">
-                © {currentYear} TalentConnectors by Yoursoft Digital Inc. All rights
+                © {currentYear} TalentConnectors Inc. All rights
                 reserved.
               </p>
               <p className="text-gray-600 text-xs text-center md:text-right">
