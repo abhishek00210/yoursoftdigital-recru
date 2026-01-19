@@ -2423,3 +2423,9 @@ input[type="checkbox"]:checked {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+@media (min-width: 1024px) {
+  .hero-lg-spacing {
+    padding-top: 30px;
+    padding-left: 90px;
+  }
+}

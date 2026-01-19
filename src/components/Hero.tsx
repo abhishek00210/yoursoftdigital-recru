@@ -50,7 +50,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-gray-900/80" />
       </div>
 
-      <div className="ccontainer-custom relative z-10 py-12 lg:pt-[21px] lg:pb-0">
+     <div className="container-custom relative z-10 py-12 hero-lg-spacing">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
